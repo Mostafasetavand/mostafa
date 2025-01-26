@@ -1,0 +1,9 @@
+settings
+colors:blue,red,green,white
+songs :"Song 1 - Adventure",
+        "Song 2 - Calm Waves",
+        "Song 3 - Battle Cry",
+        "Song 4 - Victory March",
+        "Song 5 - Mystic Journey",
+        
+        
