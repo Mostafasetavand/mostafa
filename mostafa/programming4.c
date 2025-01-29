@@ -8,7 +8,6 @@
 
 void play_music(char *song_path); // اعلام تابع پخش موسیقی
 
-
 void show_settings_menu() {
     int difficulty = 1; // پیش‌فرض: متوسط (1: آسان، 2: متوسط، 3: سخت)
     int hero_color = 2; // پیش‌فرض: سبز (1: قرمز، 2: سبز، 3: آبی، 4: زرد)
@@ -16,18 +15,18 @@ void show_settings_menu() {
 
     // لیست آهنگ‌ها و مسیرهای آنها
     char songs[MAX_SONGS][50] = {
-        "Song 1 - Adventure",
-        "Song 2 - Calm Waves",
-        "Song 3 - Battle Cry",
-        "Song 4 - Victory March",
-        "Song 5 - Mystic Journey"
+        "Song 1 - Ayjan",
+        "Song 2 - Cat",
+        "Song 3 - Hossen",
+        "Song 4 - Re",
+        "Song 5 - Ali"
     };
     char song_paths[MAX_SONGS][100] = {
-        "/home/mostafa/Downloads/0bikalamdownload1music.ir(7).mp3", // مسیر دقیق فایل‌های موسیقی را اینجا قرار دهید
-        "/home/mostafa/Downloads/0bikalamdownload1music.ir(4).mp3",
-        "/home/mostafa/Downloads/0bikalamdownload1music.ir(11).mp3",
-        "/home/mostafa/Downloads/0bikalamdownload1music.ir(10).mp3",
-        "/home/mostafa/Downloads/0bikalamdownload1music.ir(1).mp3"
+        "/home/mostafa/Music/ayjan.mp3",
+        "/home/mostafa/Music/cat.mp3",
+        "/home/mostafa/Music/hossen.mp3",
+        "/home/mostafa/Music/re.mp3",
+        "/home/mostafa/Music/ali.mp3"
     };
 
     while (1) {
@@ -49,7 +48,7 @@ void show_settings_menu() {
             change_hero_color(&hero_color);
         } else if (ch == '3') {
             change_game_music(songs, &selected_song_index);
-             play_music(song_paths[selected_song_index]); // پخش آهنگ انتخاب شده
+            play_music(song_paths[selected_song_index]); // پخش آهنگ انتخاب شده
         } else if (ch == '4') {
             break; // بازگشت به منوی اصلی
         }
@@ -70,7 +69,7 @@ extern void change_difficulty(int *difficulty) {
     else if (ch == '3') *difficulty = 3;
 }
 
- extern void change_hero_color(int *hero_color) {
+extern void change_hero_color(int *hero_color) {
     clear();
     mvprintw(2, 10, "Select Hero Color:");
     mvprintw(4, 5, "1. Red");
@@ -102,7 +101,8 @@ extern void change_game_music(char selected_song[MAX_SONGS][50], int *selected_i
             }
         }
         mvprintw(10, 5, "Use UP/DOWN to navigate, ENTER to select, 'q' to cancel.");
-        refresh();int ch = getch();
+        refresh();
+        int ch = getch();
         if (ch == KEY_UP && song_index > 0) {
             song_index--;
         } else if (ch == KEY_DOWN && song_index < MAX_SONGS - 1) {
